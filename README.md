@@ -2,6 +2,8 @@
 
 ###### tags: `netology` `advanced js`
 
+[![Build status](https://ci.appveyor.com/api/projects/status/mnqij5s14bw4hcno?svg=true)](https://ci.appveyor.com/project/Zicio/js-advanced-diploma)
+
 ## Предыстория
 
 Вы неплохо овладели не только продвинутыми возможностями JS, но и инфраструктурными инструментами. И вам поручили первый проект: разработать небольшую пошаговую игру.
