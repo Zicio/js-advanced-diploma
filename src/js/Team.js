@@ -1,3 +1,12 @@
-export default class Team {
+import Bowman from './Bowman';
+import Daemon from './Daemon';
+import Magician from './Magician';
+import Swordsman from './Swordsman';
+import Undead from './Undead';
+import Vampire from './Vampire';
 
+export default class Team {
+  constructor() {
+    this.playerTeams = [Bowman, Daemon, Magician, Swordsman, Undead, Vampire];
+  }
 }
