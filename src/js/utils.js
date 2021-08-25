@@ -1,4 +1,4 @@
-export default function calcTileType(index, boardSize) {
+export function calcTileType(index, boardSize) {
   if (index === 0) {
     return 'top-left';
   }
