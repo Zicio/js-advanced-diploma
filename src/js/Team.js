@@ -7,6 +7,7 @@ import Vampire from './Vampire';
 
 export default class Team {
   constructor() {
-    this.playerTeams = [Bowman, Daemon, Magician, Swordsman, Undead, Vampire];
+    this.playerUnits = [Bowman, Magician, Swordsman];
+    this.uiUnits = [Daemon, Undead, Vampire];
   }
 }

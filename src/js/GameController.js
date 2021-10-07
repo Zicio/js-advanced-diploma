@@ -13,8 +13,8 @@ export default class GameController {
   init() {
     this.gamePlay.drawUi(themes.prairie);
     const team = new Team();
-    const playerTeam = generateTeam(team.playerTeams, 1, 2);
-    const aiTeam = generateTeam(team.playerTeams, 1, 2);
+    const playerTeam = generateTeam(team.playerUnits, 1, 2);
+    const aiTeam = generateTeam(team.uiUnits, 1, 2);
 
     const positionArr = [];
     for (let i = 0; i < playerTeam; i++) {
