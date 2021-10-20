@@ -4,10 +4,15 @@ import Magician from './Magician';
 import Swordsman from './Swordsman';
 import Undead from './Undead';
 import Vampire from './Vampire';
+import generateTeam from './generators';
 
 export default class Team {
-  constructor() {
-    this.playerUnits = [Bowman, Magician, Swordsman];
-    this.uiUnits = [Daemon, Undead, Vampire];
+  constructor(party) {
+    if (party === 'player') {
+      this.character = generateTeam([Bowman, Magician, Swordsman], 1, 2);
+    }
+    else if (party === 'ai') {
+      this.character = generateTeam([Daemon, Undead, Vampire], 1, 2);
+    }
   }
 }

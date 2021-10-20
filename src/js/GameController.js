@@ -1,5 +1,4 @@
 import themes from './themes';
-import generateTeam from './generators';
 import Team from './Team';
 import PositionedCharacter from './PositionedCharacter';
 
@@ -12,17 +11,20 @@ export default class GameController {
 
   init() {
     this.gamePlay.drawUi(themes.prairie);
-    const team = new Team();
-    const playerTeam = generateTeam(team.playerUnits, 1, 2);
-    const aiTeam = generateTeam(team.uiUnits, 1, 2);
+    const playerTeam = new Team('player');
+    const AITeam = new Team('ai');
 
-    const positionArr = [];
-    for (let i = 0; i < playerTeam; i++) {
-      positionArr.push(new PositionedCharacter(playerTeam[i], GameController.positionGenerator(0 + i, 56 + i)[Math.trunc(Math.random() * this.gamePlay.boardSize)])); // доработать
+    const positionArrForPlayer = [];
+    const positionArrForAI = [];
+    for (let i = 0; i < this.gamePlay.boardSize ** 2; i += 8) {
+      positionArrForPlayer.push(i, i + 1);
+      positionArrForAI.push(i + (this.gamePlay.boardSize - 2), i + (this.gamePlay.boardSize - 1));
     }
-    this.gamePlay.redrawPositions(positionArr);
-    // TODO: add event listeners to gamePlay events
-    // TODO: load saved stated from stateService
+
+    for (const unit of playerTeam.character) {
+      unit.position = positionArrForPlayer[Math.trunc(Math.random() * positionArrForPlayer.length)];
+    }
+    this.gamePlay.redrawPositions(playerTeam.character);
   }
 
   static positionGenerator(from, to) {
